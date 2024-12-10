@@ -11,11 +11,17 @@ fileData.split("\n").forEach((row, ind) => {
   list2.push(parseInt(second.trim()));
 });
 
-const totalDistance = (arr1: number[], arr2: number[]) => {
-  const sortedList2 = arr2.toSorted();
-  return arr1.toSorted().reduce((acc, num, idx) => {
-    return acc + Math.abs(sortedList2[idx] - num);
-  }, 0);
-};
+const list2GroupedObject = list2.reduce(
+  (acc: Record<number, number>, num) => ({
+    ...acc,
+    [num]: (acc[num] ?? 0) + 1,
+  }),
+  {}
+);
 
-console.log(totalDistance(list1, list2));
+const similarityScore = list1.reduce(
+  (acc, num) => acc + num * (list2GroupedObject[num] ?? 0),
+  0
+);
+
+console.log("🚀 ~ similarityScore:", similarityScore);
