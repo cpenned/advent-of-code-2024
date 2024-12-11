@@ -20,3 +20,7 @@ const numOfSafeReports = data.reduce((total, row) => {
 
   return passChecks ? total + 1 : total;
 }, 0);
+
+console.log({
+  part1: numOfSafeReports,
+});

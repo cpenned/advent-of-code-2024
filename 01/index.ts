@@ -1,4 +1,4 @@
-const file = Bun.file("./input.txt");
+const file = Bun.file("01/input.txt");
 
 const list1: number[] = [];
 const list2: number[] = [];
@@ -10,6 +10,13 @@ fileData.split("\n").forEach((row, ind) => {
   list1.push(parseInt(first.trim()));
   list2.push(parseInt(second.trim()));
 });
+
+const totalDistance = (arr1: number[], arr2: number[]) => {
+  const sortedList2 = arr2.toSorted();
+  return arr1.toSorted().reduce((acc, num, idx) => {
+    return acc + Math.abs(sortedList2[idx] - num);
+  }, 0);
+};
 
 const list2GroupedObject = list2.reduce(
   (acc: Record<number, number>, num) => ({
@@ -24,4 +31,7 @@ const similarityScore = list1.reduce(
   0
 );
 
-console.log("🚀 ~ similarityScore:", similarityScore);
+console.log({
+  "part 1": totalDistance(list1, list2),
+  "part 2": similarityScore,
+});
