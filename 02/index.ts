@@ -5,7 +5,7 @@ const data = rawData
   .split("\n")
   .map((row) => row.split(" ").map((i) => parseInt(i)));
 
-const numOfSafeReports = data.reduce((total, row) => {
+const numOfSafeReports1 = data.reduce((total, row) => {
   if (row[0] === row[1]) {
     return total;
   }
@@ -21,6 +21,9 @@ const numOfSafeReports = data.reduce((total, row) => {
   return passChecks ? total + 1 : total;
 }, 0);
 
+const numOfSafeReports2 = undefined;
+
 console.log({
-  part1: numOfSafeReports,
+  part1: numOfSafeReports1,
+  part2: numOfSafeReports2,
 });

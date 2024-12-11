@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "1": "bun run 01/index.ts",
-    "2": "bun run 02/index.ts"
+    "2": "bun run 02/index.ts",
+    "3": "bun run 03/index.ts"
   },
   "devDependencies": {
     "@types/bun": "^1.1.14"
